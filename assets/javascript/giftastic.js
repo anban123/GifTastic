@@ -17,14 +17,14 @@
     //alternates gifs from still to animated when clicked
 
 //function button creation
-
+ 
 var i = 0;
 //pull from ajax
 function sportSearch(x) {
 
     var APIKey = "e6FP22HDQPcqQDR3do3pn5gSH5lOXbrc";
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=" + APIKey + "&limit=10"; 
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=" + APIKey + "&limit=10"; 
 
     $.ajax({
         url: queryURL,
@@ -40,8 +40,6 @@ function sportSearch(x) {
         $("#show-gifs").append(gifImage);
     }})
 }
-
-
 
 $(document).on("click", ".button", function() {
     var search = $(this).attr("data-sport");                          //pulls data from data-sport
