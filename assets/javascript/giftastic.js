@@ -9,7 +9,6 @@ var sports = ["baseball", "soccer", "ping pong", "volleyball"]; //??
     //adds a button //function button create a button?? on click...
 $("add-button").on("click", function() {
     var sport = $(this).attr("data-sport");
-    
 
     console.log(sport);
 })
@@ -31,7 +30,7 @@ function sportSearch(x) {
 
         for (var i=0; i < data.length; i++) {
         var gifImage = $("<img>");
-        gifImage.attr("src", data[i].images.fixed_height_still.url);
+        gifImage.attr("src", data[i].images.fixed_height_small_still.url);
         $("#show-gifs").append(gifImage);
     }})
 }
@@ -52,9 +51,9 @@ $(document).on("click", ".button", function() {
     //alternates gifs from still to animated when clicked
 $("#show-gifs").on("click", function() {
 
-    var state = $(this).attr("data-state"); 
-    var stillUrl = $(this).attr("data-still");
-    var animateUrl = $(this).attr("data-animate");                     //this will give the value of button clicked
+    //var state = $(this).attr("data-state"); 
+    var stillUrl = $(this).attr("data-images-fixed_height_still"); 
+    var animateUrl = $(this).attr("data-images-fixed_height");                     //this will give the value of button clicked
 
     if (state === "still") {
         $(this).attr("src", animateUrl);
