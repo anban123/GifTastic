@@ -15,7 +15,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-LS4/wo5Z/8SLpOLHs0IbuPAGOWTx30XSoZJ8o7WKH0UJhRpjXXTpODOjfVnNjeHu" crossorigin="anonymous">     -->
 
     <!--Link to jquery-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
 </head>
 <body>
@@ -35,7 +35,7 @@
 
     </header>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
 
             <div class="col-md-8">
@@ -43,14 +43,28 @@
             </div>
 
             <div class="col-md-4">
-                <div id="search-bar"></div> 
+                <form>
+                    <span id="search-bar">Search <input id="search-input" type="text"><input id="add-button" value="Add Item" type="submit"></span>
+                </form> 
             </div>
 
         </div>
-    </div>
+    </div> -->
 
     <!--Link to js-->
     <script type="text/javascript" src="assets/javascript/giftastic.js"></script>
+    <div id="buttons-view"></div>
+
+    <form id="sport-form">
+      <label for="sport-input">Add a Sport!</label>
+      <input type="text" id="sport-input"><br>
+ 
+      <!-- Button triggers new sport to be added -->
+      <input id="add-sport" type="submit" value="Search">
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
     
 </body>
 </html>
