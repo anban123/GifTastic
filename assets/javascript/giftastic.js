@@ -1,33 +1,18 @@
 // Homework Due 6.13.19
 
 //global variables
-var sports = ["baseball", "soccer", "ping pong", "volleyball"];
-
-function alertSportName() {
-
-    var sportName = $(this).attr("data-name");      //or $(this).data("name");      
-    alert(sportName);
-
-    console.log(this)
-
-  }
-
+var sports = ["baseball", "soccer", "ping pong", "volleyball"]; //??
 
 //button and search bar on load
 
 //search/submit - click
-    //adds a button
+    //adds a button //function button create a button?? on click...
 $("add-button").on("click", function() {
     var sport = $(this).attr("data-sport");
     
 
     console.log(sport);
 })
-
-//click event
-    //alternates gifs from still to animated when clicked
-
-//function button creation
  
 //pull from ajax function and puts gifs on the html
 function sportSearch(x) {
@@ -63,3 +48,20 @@ $(document).on("click", ".button", function() {
     sportSearch(search);
 })
 
+//click event
+    //alternates gifs from still to animated when clicked
+$("#show-gifs").on("click", function() {
+
+    var state = $(this).attr("data-state"); 
+    var stillUrl = $(this).attr("data-still");
+    var animateUrl = $(this).attr("data-animate");                     //this will give the value of button clicked
+
+    if (state === "still") {
+        $(this).attr("src", animateUrl);
+        $(this).attr("data-state", "animate");                         //state and url always need to be in sinc
+
+    } else  {
+        $(this).attr("src", stillUrl);
+        $(this).attr("data-state", "still");  
+    };
+});
