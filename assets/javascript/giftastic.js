@@ -51,16 +51,18 @@ $(document).on("click", ".button", function() {
     //alternates gifs from still to animated when clicked
 $("#show-gifs").on("click", function() {
 
+    console.log("click gifs good");
+
     //var state = $(this).attr("data-state"); 
     var stillUrl = $(this).attr("data-images-fixed_height_still"); 
     var animateUrl = $(this).attr("data-images-fixed_height");                     //this will give the value of button clicked
 
-    if (state === "still") {
+    if (stillUrl) {
         $(this).attr("src", animateUrl);
-        $(this).attr("data-state", "animate");                         //state and url always need to be in sinc
+        //$(this).attr("data-state", "animate");                         //state and url always need to be in sinc
 
     } else  {
         $(this).attr("src", stillUrl);
-        $(this).attr("data-state", "still");  
+       // $(this).attr("data-state", "still");  
     };
 });
