@@ -2,11 +2,9 @@
 
 //global variables
 var sports = ["baseball", "soccer", "ping pong", "volleyball"]; //??
+var state = true;
 
-//button and search bar on load
-
-//search/submit - click
-    //adds a button //function button create a button?? on click...
+//button and search bar on load //search/submit - click //adds a button //function button create a button?? on click...
 $("add-button").on("click", function() {
     var sport = $(this).attr("data-sport");
 
@@ -30,16 +28,13 @@ function sportSearch(x) {
 
         for (var i=0; i < data.length; i++) {
         var gifImage = $("<img>");
+        gifImage.addClass("gif");
         gifImage.attr("src", data[i].images.fixed_height_small_still.url);
         $("#show-gifs").append(gifImage);
     }})
 }
 
-//click event
-    //onclick - gets value of button
-    //pull info through ajax
-    //display gifs
-        //initially still
+//click event //onclick - gets value of button //pull info through ajax //display gifs //initially still
 $(document).on("click", ".button", function() {
     var search = $(this).attr("data-sport");                          //pulls data from data-sport
     console.log(search);
@@ -47,9 +42,8 @@ $(document).on("click", ".button", function() {
     sportSearch(search);
 })
 
-//click event
-    //alternates gifs from still to animated when clicked
-$("#show-gifs").on("click", function() {
+//click event //alternates gifs from still to animated when clicked
+$(".gif").on("click", function() {
 
     console.log("click gifs good");
 
@@ -57,7 +51,7 @@ $("#show-gifs").on("click", function() {
     var stillUrl = $(this).attr("data-images-fixed_height_still"); 
     var animateUrl = $(this).attr("data-images-fixed_height");                     //this will give the value of button clicked
 
-    if (stillUrl) {
+    if (state === true) {
         $(this).attr("src", animateUrl);
         //$(this).attr("data-state", "animate");                         //state and url always need to be in sinc
 
