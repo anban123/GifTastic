@@ -1,15 +1,44 @@
 // Homework Due 6.13.19
 
 //global variables
-var sports = ["baseball", "soccer", "ping pong", "volleyball"]; //??
+var sports = ["baseball", "soccer", "ping pong", "volleyball"]; 
 var state = true;
 
 //button and search bar on load //search/submit - click //adds a button //function button create a button?? on click...
-$("add-button").on("click", function() {
-    var sport = $(this).attr("data-sport");
+function makeButtons() {
+                                                               // Deletes the buttons prior to adding new buttons - will duplicate if not done
+    $("#show-buttons").empty();
 
-    console.log(sport);
-})
+                                                               // Looping through the array of sports
+    for (var i = 0; i < sports.length; i++) {
+
+                                                               //generates buttons for each sport in the array
+      var button = $("<button>");
+                                                               // Adding a class of sport to our button
+      button.addClass("sport");
+                                                               // Adding a data-attribute
+      button.attr("data-name", sports[i]);
+                                                               // Providing the initial button text
+      button.text(sports[i]);
+                                                               // Adding the button to the HTML
+      $("#show-buttons").append(button);
+    }
+  }
+
+                                                               // This function handles events where one button is clicked
+  $("#select-sport").on("click", function(event) {
+                                                               // Prevents autosubmit/reload when clicked
+    event.preventDefault();
+                                                               //Grabs the input from the textbox
+    var sport = $("#select-movie").val().trim();
+
+                                                                // Adds the sport to the array
+    sports.push(sport);
+
+                                                               //calls the makeButton function to make the buttons                                          
+    makeButtons();
+
+  });
  
 //pull from ajax function and puts gifs on the html
 function sportSearch(x) {
