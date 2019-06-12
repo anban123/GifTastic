@@ -2,42 +2,28 @@
 
 //global variables
 var sports = ["baseball", "soccer", "ping pong", "volleyball"]; 
-var state = true;
+var state = true;      //not sure how to deal with state... can't find it in data
 
 //button and search bar on load //search/submit - click //adds a button //function button create a button?? on click...
 function makeButtons() {
-                                                               // Deletes the buttons prior to adding new buttons - will duplicate if not done
-    $("#show-buttons").empty();
-
-                                                               // Looping through the array of sports
-    for (var i = 0; i < sports.length; i++) {
-
-                                                               //generates buttons for each sport in the array
-      var button = $("<button>");
-                                                               // Adding a class of sport to our button
-      button.addClass("sport");
-                                                               // Adding a data-attribute
-      button.attr("data-name", sports[i]);
-                                                               // Providing the initial button text
-      button.text(sports[i]);
-                                                               // Adding the button to the HTML
-      $("#show-buttons").append(button);
+    $("#show-buttons").empty();                                // Deletes the buttons prior to adding new buttons - will duplicate if not done
+                                                              
+    for (var i = 0; i < sports.length; i++) {                  // Looping through the array of sports                                                              
+      var button = $("<button>");                              // Generates buttons for each sport in the array                                                              
+      button.addClass("sport");                                // Adding a class of sport to our button                                                             
+      button.attr("data-name", sports[i]);                     // Adding a data-attribute                                                             
+      button.text(sports[i]);                                  // Providing the initial button text                                                             
+      $("#show-buttons").append(button);                       // Adding the button to the HTML
     }
   }
-
-                                                               // This function handles events where one button is clicked
-  $("#select-sport").on("click", function(event) {
-                                                               // Prevents autosubmit/reload when clicked
-    event.preventDefault();
-                                                               //Grabs the input from the textbox
-    var sport = $("#select-movie").val().trim();
-
-                                                                // Adds the sport to the array
-    sports.push(sport);
-
-                                                               //calls the makeButton function to make the buttons                                          
-    makeButtons();
-
+    
+  //on click that gets event value and calls button creation function
+  $("#select-sport").on("click", function(event) {                                                                        
+    event.preventDefault();                                    // Prevents autosubmit/reload when clicked                                                       
+    var sport = $("#select-movie").val().trim();               // Grabs the input from the textbox                                                         
+    sports.push(sport);                                        // Adds the sport to the array
+                                                                                                   
+    makeButtons();                                             // Calls the makeButton function to make the buttons
   });
  
 //pull from ajax function and puts gifs on the html
