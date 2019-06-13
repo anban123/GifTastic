@@ -11,13 +11,13 @@ function makeButtons() {  //sports[i] in ()?; need to JSON.stringify and .parse 
     console.log("makeButton function being called")                                                         
     for (var i = 0; i < sports.length; i++) {                  // Looping through the array of sports                                                              
       var button = $("<button>");                              // Generates buttons for each sport in the array                                                              
-      button.addClass("button");                                // Adding a class of sport to our button                                                             
+      button.addClass("button");//changed from sport to button                  // Adding a class of sport to our button                                                             
       button.attr("data-name", sports[i]);                     // Adding a data-attribute                                                             
       button.text(sports[i]);                                  // Providing the initial button text                                                             
       $("#show-buttons").append(button);                       // Adding the button to the HTML
     }
   }
-
+makeButtons();
   //click event to grab value from input field and calls makesButton function to create a new button
 $("#select-sport").on("click", function(event) {
     event.preventDefault();
@@ -40,6 +40,8 @@ $("#select-sport").on("click", function(event) {
  
 //pull from ajax function and puts gifs on the html
 function sportSearch(x) {
+
+    //var x = $("#sport-input").val().trim();
 
     var APIKey = "e6FP22HDQPcqQDR3do3pn5gSH5lOXbrc";
 
@@ -66,8 +68,8 @@ function sportSearch(x) {
 
 //click event //pull info through ajax //display gifs //initially still
 $(document).on("click", ".button", function() {
-    var search = $(this).attr("data-sport");                          //pulls data from data-sport
-    console.log(search);
+    var search = $(this).attr("data-name");                          //pulls data from data-sport
+    console.log(this);
 
     sportSearch(search);
 });
