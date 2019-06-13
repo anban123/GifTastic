@@ -1,7 +1,7 @@
 // Homework Due 6.13.19
 
 //global variables 
-var sports = ["soccer", "ping pong", "volleyball"]; 
+var sports = ["soccer", "ping pong", "volleyball", "curling", "ice skating", "reining", "muttin bustin"]; 
 var state = true;      //not sure how to deal with state... can't find it in data
 var i = 0;
  
