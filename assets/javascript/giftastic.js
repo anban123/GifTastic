@@ -3,11 +3,12 @@
 //global variables
 var sports = ["baseball", "soccer", "ping pong", "volleyball"]; 
 var state = true;      //not sure how to deal with state... can't find it in data
-
-//button and search bar on load //search/submit - click //adds a button //function button create a button?? on click...
+var i = 0;
+ 
+//function to creat buttons, pull elements from the array, and put on page 
 function makeButtons() {
     $("#show-buttons").empty();                                // Deletes the buttons prior to adding new buttons - will duplicate if not done
-                                                              
+    console.log("makeButton function being called")                                                         
     for (var i = 0; i < sports.length; i++) {                  // Looping through the array of sports                                                              
       var button = $("<button>");                              // Generates buttons for each sport in the array                                                              
       button.addClass("sport");                                // Adding a class of sport to our button                                                             
@@ -16,9 +17,12 @@ function makeButtons() {
       $("#show-buttons").append(button);                       // Adding the button to the HTML
     }
   }
+
+  makeButtons();                                               //want to call right away so buttons appear 
     
   //on click that gets event value and calls button creation function
-  $("#select-sport").on("click", function(event) {                                                                        
+  $("#select-sport").on("click", function(event) {
+      console.log("search click registering")                                                                        
     event.preventDefault();                                    // Prevents autosubmit/reload when clicked                                                       
     var sport = $("#select-movie").val().trim();               // Grabs the input from the textbox                                                         
     sports.push(sport);                                        // Adds the sport to the array
@@ -55,23 +59,25 @@ $(document).on("click", ".button", function() {
     console.log(search);
 
     sportSearch(search);
-})
+});
 
 //click event //alternates gifs from still to animated when clicked
-$(".gif").on("click", function() {
+// $(".gif").on("click", function() {
 
-    console.log("click gifs good");
+//     console.log("click gifs good");
 
-    //var state = $(this).attr("data-state"); 
-    var stillUrl = $(this).attr("data-images-fixed_height_still"); 
-    var animateUrl = $(this).attr("data-images-fixed_height");                     //this will give the value of button clicked
+// //how do I toggle between fixed_height_still and fixed_height?
+    
+// //var state = $(this).attr("data-state"); 
+//     var stillUrl = $(this).attr("data-images-fixed_height_still"); 
+//     var animateUrl = $(this).attr("data-images-fixed_height");                     //this will give the value of button clicked
 
-    if (state === true) {
-        $(this).attr("src", animateUrl);
-        //$(this).attr("data-state", "animate");                         //state and url always need to be in sinc
+//     if (state === true) {
+//         $(this).attr("src", animateUrl);
+//         //$(this).attr("data-state", "animate");                         //state and url always need to be in sinc
 
-    } else  {
-        $(this).attr("src", stillUrl);
-       // $(this).attr("data-state", "still");  
-    };
-});
+//     } else  {
+//         $(this).attr("src", stillUrl);
+//        // $(this).attr("data-state", "still");  
+//     };
+//});
