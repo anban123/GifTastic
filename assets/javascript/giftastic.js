@@ -5,8 +5,8 @@ var sports = ["baseball", "soccer", "ping pong", "volleyball"];
 var state = true;      //not sure how to deal with state... can't find it in data
 var i = 0;
  
-//function to creat buttons, pull elements from the array, and put on page 
-function makeButtons() {
+// //function to creat buttons, pull elements from the array, and put on page 
+function makeButtons() {  //sports[i] in ()?; need to JSON.stringify and .parse in order to feed the array through ajax?
     $("#show-buttons").empty();                                // Deletes the buttons prior to adding new buttons - will duplicate if not done
     console.log("makeButton function being called")                                                         
     for (var i = 0; i < sports.length; i++) {                  // Looping through the array of sports                                                              
@@ -18,17 +18,17 @@ function makeButtons() {
     }
   }
 
-  makeButtons();                                               //want to call right away so buttons appear 
+//   makeButtons();                                               //want to call right away so buttons appear 
     
-  //on click that gets event value and calls button creation function
-  $("#select-sport").on("click", function(event) {
-      console.log("search click registering")                                                                        
-    event.preventDefault();                                    // Prevents autosubmit/reload when clicked                                                       
-    var sport = $("#select-movie").val().trim();               // Grabs the input from the textbox                                                         
-    sports.push(sport);                                        // Adds the sport to the array
+//   //on click that gets event value and calls button creation function
+//   $("#select-sport").on("click", function(event) {
+//       console.log("search click registering")                                                                        
+//     event.preventDefault();                                    // Prevents autosubmit/reload when clicked                                                       
+//     var sport = $("#select-movie").val().trim();               // Grabs the input from the textbox                                                         
+//     sports.push(sport);                                        // Adds the sport to the array
                                                                                                    
-    makeButtons();                                             // Calls the makeButton function to make the buttons
-  });
+//     makeButtons();                                             // Calls the makeButton function to make the buttons
+//   });
  
 //pull from ajax function and puts gifs on the html
 function sportSearch(x) {
@@ -48,7 +48,7 @@ function sportSearch(x) {
         for (var i=0; i < data.length; i++) {
         var gifImage = $("<img>");
         gifImage.addClass("gif");
-        gifImage.attr("src", data[i].images.fixed_height_small_still.url);
+        gifImage.attr("src", data[i].images.fixed_height_small.url);
         $("#show-gifs").append(gifImage);
     }})
 }
