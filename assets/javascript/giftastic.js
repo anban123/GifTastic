@@ -39,7 +39,7 @@ $("#select-sport").on("click", function(event) {
 //   });
  
 //pull from ajax function and puts gifs on the html
-function sportSearch(x) {
+function sportSearch(x) { 
 
     //var x = $("#sport-input").val().trim();
 
