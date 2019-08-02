@@ -4,7 +4,7 @@
 var sports = ["soccer", "ping pong", "volleyball", "curling", "ice skating", "reining", "muttin bustin"]; 
 var state = true;      //not sure how to deal with state... can't find it in data
 var i = 0;
- 
+  
 // //function to creat buttons, pull elements from the array, and put on page 
 function makeButtons() {  //sports[i] in ()?; need to JSON.stringify and .parse in order to feed the array through ajax?
     $("#show-buttons").empty();                                // Deletes the buttons prior to adding new buttons - will duplicate if not done
@@ -62,7 +62,7 @@ function sportSearch(x) {
         gifImage.attr("src", data[i].images.fixed_height_small_still.url);
         gifImage.attr("data-still", data[i].images.fixed_height_small_still.url);
         gifImage.attr("data-animate", data[i].images.fixed_height_small.url);
-        $("#show-gifs").append(gifImage);
+        $("#show-gifs").prepend(gifImage);
     }})
 }
 
