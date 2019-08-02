@@ -24,6 +24,7 @@ $("#select-sport").on("click", function(event) {
     var newSport = $("#sport-input").val().trim();
     sports.push(newSport);
     makeButtons();
+    $("#sport-input").val("");
 })
 
 //   makeButtons();                                               //want to call right away so buttons appear 
@@ -72,6 +73,7 @@ $(document).on("click", ".button", function() {
     console.log(this);
 
     sportSearch(search);
+    
 });
 
 //click event //alternates gifs from still to animated when clicked
